@@ -11,15 +11,61 @@
     <style>
         .nav-a
         {
+            color: white !important;
+        }
+
+        #Home
+        {
+            background-image: url(../Images/home-bg.jpg);
+            width: 100%;
+            height: 800px;
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-x: hidden;
+        }
+        
+        #brand
+        {
+            font-size: 2.5vw;
+            letter-spacing: 4px;
+        }
+        #slogan_txt
+        {
+            margin-block-start: 1rem;
+            margin-block-end: 1rem;
+            margin-inline-end: 0px;
+            margin-inline-start: 0px;
+        }
+        #btn-rdv
+        {
+            text-align: center;
             color: white;
+        }
+        a.rdv :hover
+        {
+            color: black !important;
+            text-align: center;
+        }
+        .Home_txt
+        {
+            width: -moz-fit-content;
+            width: fit-content;
+            margin-left: 200px !important;
+        }
+        body
+        {
+            font-family: 'Rubik';
         }
     </style>
 </head>
     <body>
         <!--Navbar-->
-        <nav class="navbar navbar-expand-md" style="background-color: black;">
-            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 font-weight-bold">
-                <ul class="navbar-nav mr-auto">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: black;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 font-weight-bold" id="navbarToggler">
+                <ul class="navbar-nav mr-auto ml-2">
                     <li class="nav-item active">
                         <a class="nav-link nav-a" href="#">Accueil</a>
                     </li>
@@ -36,17 +82,47 @@
             </div>
             <div class="mx-auto order-0">
                 <a class="navbar-brand mx-auto" href="#"><img src="../Images/logoblack.jpg" alt="HandyMan"></a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
             </div>
-            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 font-weight-bold">
-                <ul class="navbar-nav ml-auto mr-auto">
+            <div class="d-flex flex-row w-100 order-3 font-weight-bold">
+                <ul class="navbar-nav ml-auto flex-row">
                     <li class="nav-item">
-                        <a class="nav-link nav-a" href="#">Prendre rendez-vous</a>
+                        <a class="nav-link" href="#">
+                            <button type="button" style="background-color: #FDD000;" class="rounded-pill">
+                                Prendre rendez-vous
+                            </button>
+                        </a>
                     </li>
                 </ul>
             </div>
         </nav>
+        <div class="container"></div>
+        <!--Home page-->
+            <div id="Home">
+                <div class="row" style="height: 100%">
+                    <div class="col text-white pb-0">
+                        
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+
+                    </div>
+                    <div class="w-100" style="height: fit-content;">
+                        <div class="Home_txt text-white">
+                            <span id="brand" class="h2 mb-0 slogan">T h e&nbsp;&nbsp;H a n d y M a n</span>
+                            <p id="slogan_txt" class="slogan" style="font-size: 2vw; text-align: center;">
+                                Pour ceux qui osent
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col" id="btn-rdv" style="height: max-content;">
+                        <a href="#">
+                            <button id="btn_rdv" class="btn btn-outline-warning btn-lg" style="height: 93px; border-radius: 12px;">
+                                Prendre rendez-vous
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
