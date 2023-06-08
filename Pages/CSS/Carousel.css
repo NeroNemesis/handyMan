@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .carousel [role='list'] {
+    padding: 0;
+    list-style: none;
+  }
+  .carousel-scroll-container {
+    /* Enable horizontal scrolling */
+    overflow-x: auto;
+    /* Enable horizontal scroll snap */
+    scroll-snap-type: x proximity;
+    /* Smoothly snap from one focal point to another */
+    scroll-behavior: smooth;
+  }
+  .carousel-media {
+    /* Arrange media horizontally */
+    display: flex;
+  }
+  .item {
+    /* Limit the height of each media item */
+    height: 600px;
+    /* Prevent media from shrinking */
+    flex-shrink: 0;
+    /* The focal point for each item is the center */
+    scroll-snap-align: center;
+  }
+  .item:first-of-type {
+    /* Allow users to fully scroll to the start */
+    scroll-snap-align: start;
+  }
+  .item:last-of-type {
+    /* Allow users to fully scroll to the end */
+    scroll-snap-align: end;
+  }
+  .item > *,
+  .item :is(picture, figure, img) {
+    height: 100%;
+  }
+  .item img {
+    /* Remove line height (typically done in a CSS reset) */
+    display: block;
+    /* Responsive width based on aspect ratio */
+    width: auto;
+  }
+  .carousel {
+    position: relative;
+  }
+  .carousel-control {
+    --offset-x: 0;
+    cursor: pointer;
+    /* Anchor the controls relative to the outer wrapper */
+    position: absolute;
+    /* Center the controls vertically */
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  /* Don't allow icons to be event targets */
+  .carousel-control * {
+    pointer-events: none;
+  }
+  .carousel-control[data-direction="start"] {
+    /* Same as left in LTR and right in RTL */
+    inset-inline-start: var(--offset-x);
+  }
+  .carousel-control[data-direction="end"] {
+    /* Same as right in LTR and left in RTL */
+    inset-inline-end: var(--offset-x);
+  }
+  .carousel-content {
+    position: absolute;
+    bottom: 10%;
+    left: 5%;
+    z-index: 20;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,.6);
+}
+.carousel figure 
+{
+    position: relative;
+}
+.carousel figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.25rem;
+    text-align: center;
+    background-color: hsl(0deg 0% 0% / 75%);
+    font-size: medium;
+}
+
+.carousel figcaption,
+.carousel figcaption * 
+{
+    color: white;
+}

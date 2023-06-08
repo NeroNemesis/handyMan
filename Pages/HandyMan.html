@@ -5,25 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Pages/CSS/Carousel.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="module" src="../Pages/JS/index.js"></script>
     <title>HandyMan</title>
     <style>
         .nav-a
         {
             color: white !important;
         }
-
+        #nav_rdv_btn:hover, #btn_rdv:hover
+        {
+            background-color: #FDD000 !important;
+            color: black !important;
+        }
+        #nav_rdv_btn, #btn_rdv
+        {
+            color: white !important;
+        }
         #Home
         {
             background-image: url(../Images/home-bg.jpg);
-            width: 100%;
-            height: 800px;
             background-repeat: no-repeat;
             background-size: cover;
-            overflow-x: hidden;
+            overflow: hidden;
         }
-        
+        #styles
+        {
+            overflow: hidden;
+        }
         #brand
         {
             font-size: 2.5vw;
@@ -36,10 +47,28 @@
             margin-inline-end: 0px;
             margin-inline-start: 0px;
         }
-        #btn-rdv
+        #div_btn_rdv
         {
             text-align: center;
-            color: white;
+        }
+        .flex-container
+        {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+        .flex-container2
+        {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: row;
+            row-gap: 0px;
+            column-gap: Opx;
+        }
+        .service-row
+        {
+            display: flex;
+            flex-wrap: wrap;
         }
         a.rdv :hover
         {
@@ -50,7 +79,49 @@
         {
             width: -moz-fit-content;
             width: fit-content;
-            margin-left: 200px !important;
+            margin-left: 15%;
+        }
+        .service-img img
+        {
+            height: auto;
+            width: 100%;
+            object-fit: cover;
+        }
+        .service-txt
+        {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 50px;
+        }
+        @media screen and (max-width: 600px) 
+        {
+            .Home_txt
+            {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+        @media screen and (max-width: 1050px) 
+        {
+            .service-row
+            {
+                flex-direction: column;
+            }
+            .one
+            {
+                order:1
+            }
+            .two
+            {
+                order:2
+            }
+        }
+        @media screen and (max-width: 992px) {
+            .service-img .service-txt {
+                flex: 50%;
+            }
         }
         body
         {
@@ -83,11 +154,11 @@
             <div class="mx-auto order-0">
                 <a class="navbar-brand mx-auto" href="#"><img src="../Images/logoblack.jpg" alt="HandyMan"></a>
             </div>
-            <div class="d-flex flex-row w-100 order-3 font-weight-bold">
-                <ul class="navbar-nav ml-auto flex-row">
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 font-weight-bold">
+                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            <button type="button" style="background-color: #FDD000;" class="rounded-pill">
+                            <button type="button" id="nav_rdv_btn" class="rounded-pill btn btn-outline-warning">
                                 Prendre rendez-vous
                             </button>
                         </a>
@@ -97,7 +168,7 @@
         </nav>
         <div class="container"></div>
         <!--Home page-->
-            <div id="Home">
+            <div id="Home" class="flex-container">
                 <div class="row" style="height: 100%">
                     <div class="col text-white pb-0">
                         
@@ -114,13 +185,240 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col" id="btn-rdv" style="height: max-content;">
+                    <div class="col" id="div_btn_rdv" style="height: max-content;">
                         <a href="#">
                             <button id="btn_rdv" class="btn btn-outline-warning btn-lg" style="height: 93px; border-radius: 12px;">
                                 Prendre rendez-vous
                             </button>
                         </a>
                     </div>
+                </div>
+            </div>
+            <div id="styles" style="background-color: #D9D9D9;">
+                <div class="text-white p-4" style="text-align: center; background-color: black;">
+                    <p class="h2">Les différents styles de veste que nous offrons</p>
+                </div>
+                <div class="carousel" id="carousel">
+                    <div 
+                        class="carousel-scroll-container" 
+                        role="region" 
+                        aria-label="Image carousel" 
+                        tabindex="0"
+                    >
+                        <ol class="carousel-media" role="list">
+                            <li class="item">
+                                <figure>
+                                    <img 
+                                    src="../Images/Styles/2 pièces.webp" 
+                                    alt="Costume 2 pièces" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Costume 2 pièces
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="item">
+                                <figure>
+                                   <img 
+                                    src="../Images/Styles/3 pièces.jpg" 
+                                    alt="Costume 3 pièces" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Costume 3 pièces
+                                    </figcaption> 
+                                </figure>
+                            </li>
+                            <li class="item">
+                                <figure>
+                                    <img 
+                                    src="../Images/Styles/col mao.jpg" 
+                                    alt="Costume col mao" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Costume col mao
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="item">
+                                <figure>
+                                    <img 
+                                    src="../Images/Styles/croisé.jpg" 
+                                    alt="Costume croisé" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Costume croisé
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="item">
+                                <figure>
+                                    <img 
+                                    src="../Images/Styles/smoking.jpg" 
+                                    alt="Smoking" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Smoking
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="item">
+                                <figure>
+                                    <img 
+                                    src="../Images/Styles/tweed.jpeg" 
+                                    alt="Costume tweed" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Costume tweed
+                                    </figcaption>
+                                </figure>
+                            </li>
+                            <li class="item">
+                                <figure>
+                                    <img 
+                                    src="../Images/Styles/lin.jpeg" 
+                                    alt="Costume en lin" 
+                                    width="421px" 
+                                    height="600px" 
+                                    loading="lazy" 
+                                    decoding="async">
+                                    <figcaption>
+                                        Costume en lin
+                                    </figcaption>
+                                </figure>
+                            </li>
+                        </ol>
+                    </div>
+                    <template id="carousel-controls">
+                        <ol role="list" class="carousel-controls" aria-label="Navigation controls">
+                          <li>
+                            <button
+                              class="carousel-control border-0"
+                              aria-label="Previous"
+                              data-direction="start"
+                              style="outline: none; background: none;"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" fill="black" class="bi bi-chevron-left" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                                </svg>
+                            </button>
+                          </li>
+                          <li>
+                            <button class="carousel-control border-0" aria-label="Next" data-direction="end" style="outline: none; background: none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="160" height="80" fill="black" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                            </button>
+                          </li>
+                        </ol>
+                    </template>
+                </div>
+            </div>
+            <div class="flex-container" id="services" style="background-color: black; overflow-x: hidden;">
+                <div class="text-white p-4 mb-2" style="text-align: center;">
+                    <p class="h1">Nos services</p>
+                </div>
+                <div class="row service-row text-white p-0 m-0 d">
+                    <div class="col service-img m-0 p-0 two">
+                        <img src="../Images/Services/confection.jpg" height="797px" width="1276px" alt="confection de costumes">
+                    </div>
+                    <div class="col p-0 m-0 one">
+                        <div class="ml-0 service-txt">
+                            <div class="d-block" style="text-align: center;">
+                                <div class="h2">Confection de costumes</div>
+                                <p class="h5">
+                                    La couture pour nous est un art. Laissez vous guider par
+                                    notre savoir faire décennal et donnez vie au costume de vos rêves.
+                                    Nos stylistes n'ont qu'un seul objectif, vous offrir un travail qualitatif
+                                    qui saura s'inscrire dans la durabilité.
+                                </p>
+                                <a style="color: white;" href="#">Prendre rendez-vous</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row service-row text-white p-0 m-0">
+                    <div class="col p-0 m-0 one">
+                        <div class="mr-0 service-txt" style="background-color: #FDD000; color: black;">
+                            <div class="d-block" style="text-align: center;">
+                                <div class="h2">Retouche de costumes</div>
+                                <p class="h5">
+                                    La retouche de costumes est un service entièrement gratuit offert exclusivement à nos clients.
+                                    Il vise à assurer votre satisfaction complète et à faire en sorte 
+                                    que votre costume soit le plus proche possible de ce que vous avez imaginé.
+                                </p>
+                                <a style="color: black;" href="#">Prendre rendez-vous</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col service-img p-0 m-0 two">
+                        <img src="../Images/Services/retouche.webp" height="797px" width="1276px" alt="retouche de costumes">
+                    </div>
+                </div>
+                <div class="row service-row text-white p-0 m-0">
+                    <div class="col service-img m-0 p-0 two">
+                        <img src="../Images/Services/pressing.jpg" height="797px" width="1276px" alt="nettoyage de costumes">
+                    </div>
+                    <div class="col p-0 m-0 one">
+                        <div class="service-txt ml-0">
+                            <div class="d-block" style="text-align: center;">
+                                <div class="h2">Nettoyage de costumes</div>
+                                <p class="h5">
+                                    Nous possédons un service de nettoyage sur place. Notre service
+                                    de nottoyage possède une grande expertise dans la manière dont il faut prendre 
+                                    soin d'un costume et comment lui redonner son éclat original.
+                                </p>
+                                <a style="color: white;" href="#">Prendre rendez-vous</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row service-row text-white p-0 m-0">
+                    <div class="col p-0 m-0 one">
+                        <div class="service-txt mr-0" style="background-color: #FDD000; color: black;">
+                            <div class="d-block" style="text-align: center;">
+                                <div class="h2">Parlez avec un de nos stylistes</div>
+                                <p class="h5">
+                                    Vous n'êtes pas sûr de quel modèle choisir ? Vous aimerez savoir quels matériaux
+                                    sont utilisés pour la confection ? Vous avez des questions d'ordre général ?
+                                    N'hésitez pas à nous contacter et un de nos stylistes se fera un plaisir de vous répondre. 
+                                </p>
+                                <a style="color: black;" href="#">Prendre rendez-vous en ligne</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col service-img p-0 m-0 two">
+                        <img src="../Images/Services/online.jpg" height="797px" width="1276px" alt="consultation en ligne">
+                    </div>
+                </div>
+            </div>
+            <div class="flex-container align-items-center" style="background-color: black;" id="team">
+                <div class="flex-container" style="width: 80%;">
+                    <div class="text-white p-4 mb-2 row" style="height: fit-content;">
+                        <div class="col d-none d-lg-block">
+                            <img src="../Images/logoyellow.jpg" alt="logo jaune">
+                        </div>
+                        <div class="col h1" style="text-align: center;">Notre équipe</div>
+                        <div class="col d-none d-lg-block"></div>
+                    </div>
+                    <div class="flex-container"></div>
                 </div>
             </div>
         </div>
