@@ -20,6 +20,7 @@ divWithHandIcon.addEventListener('mouseout', function handleMouseOut() {
     handIcon.style.display = 'block';
 });
 
+//Changing nav section onclick
 $(document).ready(function(){
   $('.nav-link').click(function(){
       $('.nav-link').removeClass("active");
@@ -38,6 +39,7 @@ document.querySelectorAll('.nav-link').forEach(anchor => {
   });
 });
 
+//handling nav item color change on scroll
 const sections = document.querySelectorAll(".section");
 const navItems = document.querySelectorAll(".nav-item .nav-link");
 window.onscroll = () => {
@@ -63,3 +65,26 @@ window.onscroll = () => {
     }
   });
 };
+
+//changing team members text attributes on screen size change
+jQuery(document).ready(function($) {
+  var alterClass = function() {
+    var ww = document.body.clientWidth;
+    if (ww < 551) {
+      $('.imagetxt_title').addClass('h4');
+      $('.imagetxt_title').css({"font-size":"" });
+      $('.imagetxt_p').addClass('h6');
+      $('.imagetxt_p').css({"font-size":"" });
+    } else if (ww >= 551) {
+      $('.imagetxt_title').removeClass('h4');
+      $('.imagetxt_title').css({"font-size":"1.7vw" });
+      $('.imagetxt_p').removeClass('h6');
+      $('.imagetxt_p').css({"font-size":"1.2vw" });
+    };
+  };
+  $(window).resize(function(){
+    alterClass();
+  });
+  //Fire it when the page first loads:
+  alterClass();
+});
