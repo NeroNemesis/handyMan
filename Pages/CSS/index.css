@@ -203,6 +203,13 @@ hr {
         display: flex;
     }
 }
+@media screen and (max-width: 700px) 
+{
+    .service-txt-div p
+    {
+        text-align: justify !important;
+    }
+}
 @media screen and (max-width: 888px) 
 {
     .redirect-row
@@ -224,6 +231,13 @@ hr {
     {
         margin-left: auto;
         margin-right: auto;
+    }
+}
+@media screen and (max-width: 926px) 
+{
+    #abt-us
+    {
+        text-align: justify !important;
     }
 }
 @media screen and (max-width: 1050px) 
@@ -272,7 +286,7 @@ hr {
     }
     #d-txt
     {
-        text-align: start !important;
+        text-align: justify !important;
         padding-left: 0 !important;
     }
 }
