@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Pages/CSS/index.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script type="module" src="../Pages/JS/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <title>Rendez-vous</title>
+</head>
+    <body style="background-color: #D9D9D9 !important;">
+        <!--Navbar-->
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: black;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 font-weight-bold" id="navbarToggler">
+                <ul class="navbar-nav mr-auto ml-2">
+                    <li class="nav-item">
+                        <a class="nav-link nav-a2 home" href="HandyMan.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a2 active styles d-none" href="HandyMan.html#styles">styles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a2 services" href="HandyMan.html#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a2 team" href="HandyMan.html#team">A propos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-a contact" href="#contact">Nous joindre</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mx-auto order-0">
+                <a class="navbar-brand mx-auto" href="HandyMan.html"><img src="../Images/logoblack.jpg" alt="HandyMan"></a>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 font-weight-bold">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">
+                            <button type="button" id="nav_rdv_btn" class="rounded-pill btn btn-outline-warning disabled">
+                                Prendre rendez-vous
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div id="main" class="flex-container container" style="padding-top: 70px; color: black;">
+            <div class="p-4 row" style="height: fit-content;">
+                <div class="col d-none d-lg-block">
+                </div>
+                <div class="col h1" style="text-align: center;"><img src="../Images/logogrey.jpg" alt="logo jaune"></div>
+                <div class="col d-none d-lg-block"></div>
+            </div>
+            <div class="flex-container">
+                <div class="p-4 mb-4" id="d-txt" style="text-align: center;">
+                    <p class="h5">
+                        Pour prendre rendez-vous, veuillez remplir les champs du formulaire mis à votre disposition et
+                        le soumettre. Vous pouvez vous referrer au tableau ci-dessous pour avoir une idée de nos prix.
+                        Seuls les services de confection et de nettoyage sont facturés. Pour ce qui est des services de rendez-vous
+                        avec un styliste et retouche, ils sont entièrement gratuits. Veuillez prendre en note que pour les 
+                        rendez-vous chez-vous ou ailleur des frais peuvent s'appliquer selon la distance.
+                    </p>
+                </div>
+                <div class="row rdvRow">
+                    <div class="col col-one w-100">
+                        <form id="booking-form" action="reservation.php" method="post">
+                            <div class="row booking-row">
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="name">Prénom</label>
+                                        <input type="text" id="fname" name="client_fname" placeholder="John" pattern=[A-Z\sa-z]{3,20} required>
+                                    </div>
+                                </div>
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="name">Nom</label>
+                                        <input type="text" id="lname" name="client_lname" placeholder="Doe" pattern=[A-Z\sa-z]{3,20} required>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="row booking-row">
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="email">E-mail</label>
+                                        <input type="email" id="email" name="client_email" placeholder="john.doe@email.com" required>
+                                    </div>
+                                </div>
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="phone">Numéro de téléphone</label>
+                                        <input type="tel" id="phone" name="client_phone" placeholder="123-456-7890" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="row booking-row">
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="service-selection">Selectionnez un service</label>
+                                        <select id="service-selection" name="service_preference" required>
+                                            <option value="" disabled selected>Choisissez un service dans la liste</option>
+                                            <option value="confection">Confection de costume</option>
+                                            <option value="retouche">Retouche de costume</option>
+                                            <option value="nettoyage">Nettoyage de costume</option>
+                                            <option value="consultation">Consultaion avec un styliste (en ligne seulement)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="rdvType" class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="rdvType-selection">Type de rendez-vous</label>
+                                        <select id="rdvType-selection" name="rdvType_preference" required>
+                                            <option value="" disabled selected>Quelle est votre préférence</option>
+                                            <option value="onsite">En personne</option>
+                                            <option value="yourplace">Chez-vous</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="adress" class="booking-elem d-none">
+                                <label for="name">Votre adresse</label>
+                                <input type="text" id="adr" name="client_adress" placeholder="1 rue john doe" pattern=[A-Z\sa-z]{3,20}>
+                            </div>
+                            <div class="row booking-row">
+                                <div class="col w-100 h-100">
+                                    <div class="booking-elem">
+                                        <label for="style-selection">Type de costume</label>
+                                        <select id="style-selection" name="style_preference" required>
+                                            <option value="" disabled selected>Choisissez un type dans la liste</option>
+                                            <option value="2piece">2 pièces</option>
+                                            <option value="3piece">3 pièces</option>
+                                            <option value="mao">Col mao</option>
+                                            <option value="croise">Croisé</option>
+                                            <option value="smoking">Smoking</option>
+                                            <option value="tweed">Tweed</option>
+                                            <option value="lin">lin</option>
+                                            <option value="other">Autre</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="nbrPers" class="col w-100 h-100">
+                                    <div class="booking-elem inlined">
+                                        <label for="adult">Nombre de personnes</label>
+                                        <input type="number" id="persons" name="total_persons" placeholder="0" min="1" required>
+                                      </div>
+                                </div>
+                            </div>
+                            <div class="booking-elem">
+                                <label for="stylist-selection">Le styliste</label>
+                                <select id="stylist-selection" name="stylist_preference" required>
+                                    <option value="" disabled selected>Choisissez un styliste dans la liste</option>
+                                    <option value="roberto">Roberto</option>
+                                    <option value="anabelle">Annabelle</option>
+                                    <option value="stephane">Stéphane</option>
+                                    <option value="moustapha">Moustapha</option>
+                                    <option value="ernesto">Ernesto</option>
+                                    <option value="marta">Marta</option>
+                                    <option value="other">Je ne sais pas</option>
+                                </select>
+                            </div>
+                            <div class="row booking-row">
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="checkin-date">Sélectionnez une date</label>
+                                        <input type="date" id="checkin-date" name="checkin" required>
+                                    </div>
+                                </div>
+                                <div class="col w-100">
+                                    <div class="booking-elem">
+                                        <label for="checkin-time">Sélectionner une heure</label>
+                                        <input type="time" step="3600" id="checkin-time" name="checkinTime" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="booking-elem">
+                              <label for="message">Commentaires et suggestions</label>
+                              <textarea id="message" name="client_message" placeholder="Dites ce que vous pensez ou si vous avez des requêtes"></textarea>
+                            </div>
+                            <button id="rdvSubmit" class="btn rounded-pill" type="submit">Prendre rendez-vous</button>
+                          </form>
+                    </div>
+                    <div class="col col-two ml-5 w-100">
+                        <div class="flex-container">
+                            <div>
+                                <h3>Grille de prix</h3>
+                                <p class="h5 mt-3">Les prix indiqué ci-dessous ne le sont qu'à titre indicatif et peuvent
+                                    être sujets à changement lors du rendez-vous. Taxes non incluses.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="mt-3 mb-2">Confection</h4>
+                                <table class="table table-sm mt-3 table-hover" style="background-color: white;">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Styles</th>
+                                        <th scope="col">Prix (CAD)</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">Costume 2 pièces</th>
+                                        <td>A partir de 445</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume 3 pièces</th>
+                                        <td>A partir de 525</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume col mao</th>
+                                        <td colspan="2">A partir de 405</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume croisé</th>
+                                        <td colspan="2">A partir de 405</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Smoking</th>
+                                        <td colspan="2">A partir de 445</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume tweed</th>
+                                        <td colspan="2">A partir de 500</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume en lin</th>
+                                        <td colspan="2">A partir de 500</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div>
+                                <h4 class="mt-3 mb-2">Nettoyage</h4>
+                                <table class="table table-sm mt-3 table-hover" style="background-color: white;">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Styles</th>
+                                        <th scope="col">Prix (CAD)</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row">Costume 2 pièces</th>
+                                        <td>A partir de 25</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume 3 pièces</th>
+                                        <td>A partir de 28</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Costume en lin</th>
+                                        <td colspan="2">A partir de 35</td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row">Tout autre type de costume</th>
+                                        <td colspan="2">A partir de 30</td>
+                                      </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer style="overflow-x: hidden;" id="contact" class="section mt-4">
+            <div class="row flex-container3 ml-auto mr-auto footer-row mt-4" style="width: 80%; color: white;">
+                <div class="col p-0" style="width: fit-content;">
+                    <img src="../Images/logoyellow.jpg" alt="logo">
+                    <div class="position-relative d-about">
+                        <p style="font-size: 1vw;">The HandyMan est une entreprise de confection de costumes 
+                            de haute qualité pour hommes.
+                        </p>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col p-0">
+                    <p class="mb-3" style="font-size: 1.7vw;"> Où nous joindre ?</p>
+                    <div class="position-relative" style="font-size: 1.2vw;">
+                        <p>Téléphone - 819 819 - 8191</p>
+                        <p>Télécopieur - 819 819 - 8192</p>
+                        <p>Mail - info@handyman.com</p>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col p-0">
+                    <p class="mb-3" style="font-size: 1.5vw;">Localisation et horaire</p>
+                    <div class="position-relative" style="font-size: 1.2vw;">
+                        <p>Adresse : 1 rue du siteweb, Halifax, 
+                            X4T 4R6, NS, CA</p>
+                        <p>Horaire : Lundi - vendredi de 9h à 17h</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex ml-auto mr-auto justify-content-center" style="width: 80%;">
+                <div>
+                    <a href="#"><svg id="fbook" xmlns="http://www.w3.org/2000/svg" height="1.9vw" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><rect><title>Facebook</title></rect><style> #fbook{fill: #FDD000; margin-right: 0.5rem;}</style> <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+                    <a href="#"><svg id="ig" xmlns="http://www.w3.org/2000/svg" height="1.9vw" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><rect><title>Instagram</title></rect><style> #ig{fill: #FDD000; margin-right: 0.5rem;}</style><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+                    <a href="#"><svg id="twitter" xmlns="http://www.w3.org/2000/svg" height="1.9vw" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><rect><title>Twitter</title></rect><style> #twitter{fill: #FDD000; margin-right: 0.5rem;}</style><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg></a>
+                    <a href="#"><svg id="reddit" xmlns="http://www.w3.org/2000/svg" height="1.9vw" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><rect><title>Reddit</title></rect><style>#reddit{fill: #FDD000; margin-right: 0.5rem;}</style><path d="M440.3 203.5c-15 0-28.2 6.2-37.9 15.9-35.7-24.7-83.8-40.6-137.1-42.3L293 52.3l88.2 19.8c0 21.6 17.6 39.2 39.2 39.2 22 0 39.7-18.1 39.7-39.7s-17.6-39.7-39.7-39.7c-15.4 0-28.7 9.3-35.3 22l-97.4-21.6c-4.9-1.3-9.7 2.2-11 7.1L246.3 177c-52.9 2.2-100.5 18.1-136.3 42.8-9.7-10.1-23.4-16.3-38.4-16.3-55.6 0-73.8 74.6-22.9 100.1-1.8 7.9-2.6 16.3-2.6 24.7 0 83.8 94.4 151.7 210.3 151.7 116.4 0 210.8-67.9 210.8-151.7 0-8.4-.9-17.2-3.1-25.1 49.9-25.6 31.5-99.7-23.8-99.7zM129.4 308.9c0-22 17.6-39.7 39.7-39.7 21.6 0 39.2 17.6 39.2 39.7 0 21.6-17.6 39.2-39.2 39.2-22 .1-39.7-17.6-39.7-39.2zm214.3 93.5c-36.4 36.4-139.1 36.4-175.5 0-4-3.5-4-9.7 0-13.7 3.5-3.5 9.7-3.5 13.2 0 27.8 28.5 120 29 149 0 3.5-3.5 9.7-3.5 13.2 0 4.1 4 4.1 10.2.1 13.7zm-.8-54.2c-21.6 0-39.2-17.6-39.2-39.2 0-22 17.6-39.7 39.2-39.7 22 0 39.7 17.6 39.7 39.7-.1 21.5-17.7 39.2-39.7 39.2z"/></svg></a>
+                </div>
+            </div>
+            <div class="text-white p-4 mb-2" style="text-align: center;">
+                <p style="font-size: 1.2vw; color:white">2023 HandyMan No rights reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

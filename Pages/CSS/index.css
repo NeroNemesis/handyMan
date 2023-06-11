@@ -2,6 +2,10 @@
 {
     color: white !important;
 }
+.nav-a2
+{
+    color: white !important;
+}
 #btn_rdv
 {
     width: 100%;
@@ -41,6 +45,11 @@
 #div_btn_rdv
 {
     text-align: center;
+}
+#rdvSubmit
+{
+    background-color: black !important;
+    color: #FDD000 !important;
 }
 /*#abt-us
 {
@@ -148,11 +157,65 @@ a.rdv :hover
     bottom: 8px;
     right: 16px;
 }
+div.booking-elem {
+    margin: 20px 0;
+}
+div.booking-elem.inlined {
+    width: 100%;
+    display: inline-block;
+    float: left;
+    margin-left: 1%;
+}
+label {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 1.25em;
+}
+input, select, textarea {
+    border-radius: 2px;
+    border: 2px solid #777;
+    box-sizing: border-box;
+    font-size: 1.25em;
+    width: 100%;
+    padding: 10px;
+}
+div.booking-elem.inlined input {
+    height: 100%;
+    display: inline-block;
+}
+textarea {
+    height: 250px;
+}
+hr {
+    border: 1px dotted #ccc;
+}
+@media screen and (max-width: 405px) 
+{
+    .thx_div
+    {
+        text-align: justify !important;
+    }
+}
 @media screen and (max-width: 550px) 
 {
     .imagetxt_title .imagetxt_p
     {
         display: flex;
+    }
+}
+@media screen and (max-width: 888px) 
+{
+    .redirect-row
+    {
+        flex-direction: column;
+    }
+    .redirect-col
+    {
+        display: flex !important;
+        justify-content: center !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 1rem;
     }
 }
 @media screen and (max-width: 790px) 
@@ -188,11 +251,29 @@ a.rdv :hover
     }
     .footer-row img
     {
-        max-width: 60%;
+        max-width: 30%;
     }
     .d-about
     {
-        max-width: 60%;
+        max-width: 30%;
+    }
+    .rdvRow
+    {
+        flex-direction: column;
+    }
+    .col-one
+    {
+        order:2;
+    }
+    .col-two
+    {
+        order:1;
+        margin-left: 0 !important;
+    }
+    #d-txt
+    {
+        text-align: start !important;
+        padding-left: 0 !important;
     }
 }
 @media screen and (max-width: 550px)
@@ -205,6 +286,13 @@ a.rdv :hover
     .team-img
     {
         margin-top: 0.5rem !important;
+    }
+}
+@media screen and (max-width: 434px)
+{
+    .booking-row
+    {
+        flex-direction: column;
     }
 }
 body
