@@ -22,7 +22,7 @@
 }
 #home
 {
-    background-image: url("/Images/home-bg.jpg");
+    background-image: url('../../Images/home-bg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     overflow: hidden;
